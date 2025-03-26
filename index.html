@@ -14,10 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
         // Setting up the scene, camera, and renderer
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        const scene(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
         // Adding a light source
@@ -36,12 +33,12 @@
         const medkit = new THREE.Group();
 
         const baseGeometry = new THREE.BoxGeometry(2, 1, 1);
-        const baseMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+        const baseMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
         const base = new THREE.Mesh(baseGeometry, baseMaterial);
         medkit.add(base);
 
         const lidGeometry = new THREE.BoxGeometry(2, 0.5, 1);
-        const lidMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+        const lidMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
         const lid = new THREE.Mesh(lidGeometry, lidMaterial);
         lid.position.y = 0.75;
         medkit.add(lid);
@@ -49,17 +46,28 @@
         scene.add(medkit);
 
         // Adding content inside the medkit
-        const createPlaceholder = (color, position) => {
+        const createPlaceholder = (color, position, label) => {
             const geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-            const material = new THREE.MeshBasicMaterial({ color });
+            const material = new THREE.MeshStandardMaterial({ color });
             const placeholder = new THREE.Mesh(geometry, material);
             placeholder.position.set(...position);
+
+            const textGeometry = new THREE.TextGeometry(label, {
+                font: new THREE.FontLoader().load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json'),
+                size: 0.1,
+                height: 0.01
+            });
+            const textMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+            const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+            textMesh.position.set(position[0] - 0.25, position[1] + 0.3, position[2]);
+            medkit.add(textMesh);
+
             medkit.add(placeholder);
         };
 
-        createPlaceholder(0x00ff00, [0, 0.25, 0]); // Green placeholder
-        createPlaceholder(0x0000ff, [0.75, 0.25, 0]); // Blue placeholder
-        createPlaceholder(0xffff00, [-0.75, 0.25, 0]); // Yellow placeholder
+        createPlaceholder(0x00ff00, [0, 0.25, 0], 'Prediction'); // Green placeholder
+        createPlaceholder(0x0000ff, [0.75, 0.25, 0], 'Warning'); // Blue placeholder
+        createPlaceholder(0xffff00, [-0.75, 0.25, 0], 'Mitigation'); // Yellow placeholder
 
         // Positioning the camera
         camera.position.set(0, 2, 5);
