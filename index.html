@@ -22,7 +22,6 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* HEADER */
     header {
       background: linear-gradient(to right, #0f172a, #1d4ed8);
       color: white;
@@ -34,22 +33,22 @@
       z-index: 10;
     }
     header .logo {
-      font-size: 38px;
+      font-size: 36px;
+      margin-bottom: 8px;
       text-decoration: none;
       color: white;
-      font-weight: 700;
       transition: color 0.3s;
+      cursor: pointer;
+      font-weight: 700;
+      display: inline-block;
     }
     header .logo:hover {
       color: #93c5fd;
-      cursor: pointer;
     }
     header p {
       font-size: 18px;
       opacity: 0.9;
-      margin-top: 8px;
     }
-    /* Change this to your new image file if desired */
     header::after {
       content: '';
       position: absolute;
@@ -60,7 +59,6 @@
       background-size: contain;
       pointer-events: none;
     }
-    /* NAV */
     nav {
       background: white;
       display: flex;
