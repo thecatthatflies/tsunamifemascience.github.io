@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TsunamiShield | Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prediction | TsunamiShield</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* GLOBAL STYLES */
     html, body {
       margin: 0;
       padding: 0;
@@ -22,7 +21,6 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* HEADER */
     header {
       background: linear-gradient(to right, #0f172a, #1d4ed8);
       color: white;
@@ -34,22 +32,23 @@
       z-index: 10;
     }
     header .logo {
-      font-size: 38px;
+      font-size: 36px;
+      margin-bottom: 8px;
       text-decoration: none;
       color: white;
-      font-weight: 700;
       transition: color 0.3s;
+      cursor: pointer;
+      font-weight: 700;
+      display: inline-block;
     }
     header .logo:hover {
       color: #93c5fd;
-      cursor: pointer;
     }
     header p {
       font-size: 18px;
       opacity: 0.9;
-      margin-top: 8px;
     }
-    /* Change this to your new image file if desired */
+    /* Replace 'image.png' with your new file if needed */
     header::after {
       content: '';
       position: absolute;
@@ -57,10 +56,10 @@
       left: 0;
       width: 100%;
       height: 80px;
+      background: url('image.png') no-repeat center top;
       background-size: contain;
       pointer-events: none;
     }
-    /* NAV */
     nav {
       background: white;
       display: flex;
@@ -103,7 +102,6 @@
       color: #1d4ed8;
       transform: translateY(-2px);
     }
-    /* MAIN */
     main {
       flex: 1;
       padding: 60px 20px;
@@ -117,50 +115,61 @@
       font-size: 32px;
       text-align: center;
     }
-    .welcome {
+    .infocard {
       background: white;
       padding: 30px;
+      margin-bottom: 30px;
       border-radius: 14px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      animation: slideIn 0.6s forwards;
-      transform: translateY(30px);
+      border-left: 5px solid #3b82f6;
+      transition: transform 0.3s, box-shadow 0.3s;
       opacity: 0;
+      transform: translateY(30px);
+      animation: slideIn 0.6s forwards;
     }
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .welcome:hover {
+    .infocard:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 30px rgba(0,0,0,0.08);
     }
-    .welcome p {
-      margin: 16px 0;
-      line-height: 1.6;
+    .infocard:nth-of-type(2) { animation-delay: 0.2s; }
+    .infocard:nth-of-type(3) { animation-delay: 0.4s; }
+    @keyframes slideIn {
+      to { opacity: 1; transform: translateY(0); }
     }
-    .home-buttons {
+    .infocard h3 {
+      margin-bottom: 12px;
+      color: #0f172a;
+      font-size: 20px;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
+      align-items: center;
+      gap: 10px;
     }
-    .home-buttons a {
+    .infocard h3::before {
+      content: '🔍';
+      font-size: 22px;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
       background: #1d4ed8;
       color: #fff;
+      border: none;
       padding: 12px 16px;
+      font-size: 16px;
       border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.3s, transform 0.2s;
-      font-weight: 600;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 6px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s, transform 0.2s;
+      z-index: 1000;
     }
-    .home-buttons a:hover {
+    .back-to-top:hover {
       background: #0f172a;
       transform: translateY(-2px);
     }
-    /* FOOTER */
     footer {
       background: #0f172a;
       color: white;
@@ -173,35 +182,66 @@
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo">TsunamiShield</a>
-    <p>Your Gateway to Tsunami Preparedness</p>
+    <a class="logo" href="index.html">TsunamiShield</a>
+    <p>Prediction Strategies for Tsunami Preparedness</p>
   </header>
 
   <nav>
-    <!-- Adjust tooltip text as you like -->
     <a href="prediction.html" title="Our approach to forecasting tsunamis">🔮 Prediction</a>
     <a href="warning.html" title="How we alert communities of impending dangers">⚠ Warning</a>
     <a href="mitigation.html" title="Strategies to reduce tsunami impact">🛡 Mitigation</a>
   </nav>
 
   <main>
-    <h2>Welcome Home</h2>
-    <div class="welcome">
+    <h2>Prediction</h2>
+
+    <div class="infocard">
+      <h3>Research & Evidence</h3>
       <p>
-        This site is your one-stop portal for tsunami education, from scientific prediction insights
-        to the steps local officials take to keep communities safe through warnings and mitigation plans.
-        Dive into each section to learn more.
+        We use ocean buoys, seismic sensors, and satellite monitoring to track
+        undersea activity. Historical data from the 2011 Japan tsunami and local
+        records inform our prediction models.
       </p>
-      <div class="home-buttons">
-        <a href="prediction.html">Explore Prediction</a>
-        <a href="warning.html">See Warnings</a>
-        <a href="mitigation.html">Mitigation Plans</a>
-      </div>
     </div>
+
+    <div class="infocard">
+      <h3>Clear Reasoning</h3>
+      <p>
+        Tsunamis often follow strong offshore earthquakes. When seismic waves
+        reach certain thresholds, alerts are triggered and simulation models
+        estimate potential wave impact zones.
+      </p>
+    </div>
+
+    <div class="infocard">
+      <h3>Scientists’ Action Plan</h3>
+      <p>
+        - $2.5M invested in updated buoys<br>
+        - Seismic servers with 24/7 monitoring<br>
+        - Staff: 15 scientists, 5 data analysts<br>
+        - Reporting every 15 minutes to FEMA central
+      </p>
+    </div>
+
+    <button class="back-to-top" id="backToTopBtn">⬆ Top</button>
   </main>
 
   <footer>
     &copy; 2025 TsunamiShield Project | FEMA Student Assessment Tool
   </footer>
+
+  <script>
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
