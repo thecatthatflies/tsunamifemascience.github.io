@@ -17,7 +17,7 @@
       animation: fadeIn 1s ease;
     }
     body {
-      background: linear-gradient(to bottom, #fefce8, #f7e4c8);
+      background: linear-gradient(to bottom, #f0f4f8, #dbeafe);
       background-attachment: fixed;
       background-size: cover;
     }
@@ -26,7 +26,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
     header {
-      background: linear-gradient(to right, #7c2d12, #f97316);
+      background: linear-gradient(to right, #0f172a, #1d4ed8);
       color: white;
       padding: 60px 20px 100px;
       text-align: center;
@@ -40,10 +40,7 @@
       margin-bottom: 8px;
       text-decoration: none;
       color: white;
-      transition: color 0.3s;
-      cursor: pointer;
       font-weight: 700;
-      display: inline-block;
     }
     header p {
       font-size: 18px;
@@ -61,12 +58,16 @@
       z-index: 999;
     }
     nav a {
-      color: #7c2d12;
+      color: #1e3a8a;
       text-decoration: none;
       font-weight: 600;
       padding: 8px 16px;
       border-radius: 6px;
       transition: background 0.3s, color 0.3s, transform 0.2s ease;
+    }
+    nav a:hover {
+      background: #e0e7ff;
+      color: #1d4ed8;
     }
     main {
       flex: 1;
@@ -78,7 +79,7 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
     h2 {
-      color: #7c2d12;
+      color: #1e40af;
       font-size: 32px;
       text-align: center;
       margin-bottom: 40px;
@@ -110,7 +111,7 @@
       text-align: left;
     }
     th {
-      background: #7c2d12;
+      background: #1e3a8a;
       color: white;
       font-weight: 600;
     }
@@ -118,7 +119,7 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #7c2d12;
+      background: #1d4ed8;
       color: #fff;
       border: none;
       padding: 12px 16px;
@@ -126,9 +127,16 @@
       border-radius: 6px;
       cursor: pointer;
       display: none;
-      align-items: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: background 0.3s, transform 0.2s;
+    }
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      margin-top: auto;
     }
   </style>
 </head>
@@ -139,9 +147,9 @@
   </header>
 
   <nav>
-    <a href="prediction.html">🔮 Prediction</a>
-    <a href="warning.html">⚠️ Warning</a>
-    <a href="mitigation.html">🛑 Mitigation</a>
+    <a href="prediction.html" title="Our approach to forecasting tsunamis">🔮 Prediction</a>
+    <a href="warning.html" title="How we alert communities of impending dangers">⚠️ Warning</a>
+    <a href="mitigation.html" title="Strategies to reduce tsunami impact">🛑 Mitigation</a>
   </nav>
 
   <main>
