@@ -40,11 +40,28 @@
       margin-bottom: 8px;
       text-decoration: none;
       color: white;
+      transition: color 0.3s;
+      cursor: pointer;
       font-weight: 700;
+      display: inline-block;
+    }
+    header .logo:hover {
+      color: #93c5fd;
     }
     header p {
       font-size: 18px;
       opacity: 0.9;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: url('image.png') no-repeat center top;
+      background-size: contain;
+      pointer-events: none;
     }
     nav {
       background: white;
@@ -64,10 +81,29 @@
       padding: 8px 16px;
       border-radius: 6px;
       transition: background 0.3s, color 0.3s, transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+    }
+    nav a[title]:hover::after {
+      content: attr(title);
+      position: absolute;
+      background: #1d4ed8;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      white-space: nowrap;
+      left: 50%;
+      transform: translate(-50%, -120%);
+      z-index: 1001;
+      pointer-events: none;
     }
     nav a:hover {
       background: #e0e7ff;
       color: #1d4ed8;
+      transform: translateY(-2px);
     }
     main {
       flex: 1;
@@ -115,6 +151,9 @@
       color: white;
       font-weight: 600;
     }
+    tr:last-child td {
+      border-bottom: none;
+    }
     .back-to-top {
       position: fixed;
       bottom: 20px;
@@ -127,8 +166,15 @@
       border-radius: 6px;
       cursor: pointer;
       display: none;
+      align-items: center;
+      gap: 6px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: background 0.3s, transform 0.2s;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      background: #0f172a;
+      transform: translateY(-2px);
     }
     footer {
       background: #0f172a;
@@ -143,35 +189,33 @@
 <body>
   <header>
     <a class="logo" href="index.html">TsunamiShield</a>
-    <p>Mitigation Strategies for Tsunami Preparedness</p>
+    <p>Helping Our Communities Stay Safe & Prepared</p>
   </header>
-
   <nav>
     <a href="prediction.html" title="Our approach to forecasting tsunamis">🔮 Prediction</a>
     <a href="warning.html" title="How we alert communities of impending dangers">⚠️ Warning</a>
     <a href="mitigation.html" title="Strategies to reduce tsunami impact">🛑 Mitigation</a>
   </nav>
-
   <main>
     <h2>Mitigation</h2>
 
     <h3>📘 Effective Strategies</h3>
-    <p>Reducing tsunami impact requires informed planning and preparation. FEMA recommends:</p>
+    <p>We believe that with thoughtful preparation, communities can reduce the damage caused by tsunamis. FEMA recommends:</p>
     <ul>
-      <li>Constructing tsunami-resistant buildings and enforcing coastal regulations.</li>
-      <li>Providing clear evacuation route maps and community training programs.</li>
-      <li>Utilizing natural barriers such as mangroves to absorb wave energy.</li>
+      <li>Constructing tsunami-resistant buildings and strengthening coastal building codes.</li>
+      <li>Designing clear and accessible evacuation route maps.</li>
+      <li>Planting natural barriers like mangroves and restoring dunes to absorb wave energy.</li>
     </ul>
 
     <h3>📘 Community Involvement</h3>
-    <p>Collaboration between governments, businesses, and individuals ensures success:</p>
+    <p>Working together makes a huge difference. When governments, organizations, and individuals partner up, everyone is safer. We support:</p>
     <ul>
-      <li>Grant programs to fund local awareness campaigns.</li>
-      <li>Encouraging public-private partnerships for monitoring systems.</li>
-      <li>Community engagement through drills and workshops.</li>
+      <li>Grant programs to fund local education and awareness campaigns.</li>
+      <li>Encouraging partnerships between public agencies and private businesses for monitoring systems.</li>
+      <li>Running local drills, town hall discussions, and emergency workshops.</li>
     </ul>
 
-    <h3>📘 Action Plan (Mitigation)</h3>
+    <h3>📘 Personal Action Plan (Mitigation)</h3>
     <table>
       <thead>
         <tr>
@@ -197,18 +241,26 @@
           <td>$200,000</td>
         </tr>
         <tr>
-          <td><strong>Total</strong></td>
-          <td></td>
-          <td><strong>$1.15M</strong></td>
-        </tr>
+  <td>Total</td>
+  <td></td>
+  <td>$1.15M</td>
+</tr>
       </tbody>
     </table>
 
-    <button class="back-to-top">⬆ Top</button>
+    <button class="back-to-top" id="backToTopBtn">⬆ Top</button>
   </main>
-
   <footer>
     &copy; 2025 TsunamiShield Project | FEMA
   </footer>
+  <script>
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 200 ? 'flex' : 'none';
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
