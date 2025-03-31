@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Warning | TsunamiShield</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -11,11 +11,15 @@
       padding: 0;
       height: 100%;
       font-family: 'Inter', 'DM Sans', sans-serif;
-      background: #f0f4f8;
       color: #1e293b;
       display: flex;
       flex-direction: column;
       animation: fadeIn 1s ease;
+    }
+    body {
+      background: linear-gradient(to bottom, #f0f4f8, #dbeafe);
+      background-attachment: fixed;
+      background-size: cover;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -55,6 +59,7 @@
       left: 0;
       width: 100%;
       height: 80px;
+      background: url('image.png') no-repeat center top;
       background-size: contain;
       pointer-events: none;
     }
@@ -105,46 +110,49 @@
       padding: 60px 20px;
       max-width: 960px;
       margin: auto;
-      position: relative;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
     h2 {
       color: #1e40af;
-      margin-bottom: 30px;
       font-size: 32px;
       text-align: center;
+      margin-bottom: 40px;
     }
-    .infocard {
-      background: white;
-      padding: 30px;
-      margin-bottom: 30px;
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      border-left: 5px solid #3b82f6;
-      transition: transform 0.3s, box-shadow 0.3s;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideIn 0.6s forwards;
-    }
-    .infocard:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    }
-    .infocard:nth-of-type(2) { animation-delay: 0.2s; }
-    .infocard:nth-of-type(3) { animation-delay: 0.4s; }
-    @keyframes slideIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .infocard h3 {
-      margin-bottom: 12px;
+    h3 {
       color: #0f172a;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .infocard h3::before {
-      content: '⚠️';
       font-size: 22px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+    p, ul {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 20px 0;
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+    th {
+      background: #1e3a8a;
+      color: white;
+      font-weight: 600;
+    }
+    tr:last-child td {
+      border-bottom: none;
     }
     .back-to-top {
       position: fixed;
@@ -180,47 +188,67 @@
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo">TsunamiShield</a>
-    <p>Warning Systems to Keep Communities Safe</p>
+    <a class="logo" href="index.html">TsunamiShield</a>
+    <p>Helping Our Communities Stay Safe & Prepared</p>
   </header>
-
   <nav>
-    <a href="prediction.html" title="Our approach to forecasting tsunamis">🔮 Prediction</a>
+    <a href="prediction.html" title="Our approach to forecasting tsunamis">🧠 Prediction</a>
     <a href="warning.html" title="How we alert communities of impending dangers">⚠️ Warning</a>
     <a href="mitigation.html" title="Strategies to reduce tsunami impact">🛑 Mitigation</a>
   </nav>
-
   <main>
     <h2>Warning</h2>
-    <div class="infocard">
-      <h3>Communication Methods</h3>
-      <p>
-        Hawaii uses sirens, text alerts, local radio, and TV emergency broadcasts.
-        We’re expanding mobile app alerts and beachside display boards.
-      </p>
-    </div>
-    <div class="infocard">
-      <h3>Effectiveness</h3>
-      <p>
-        According to a 2023 study, 87% of residents who received a warning evacuated
-        in time. Simulated drills improve reaction speed and awareness.
-      </p>
-    </div>
-    <div class="infocard">
-      <h3>Government Action Plan</h3>
-      <p>
-        - Budget: $3M<br>
-        - Allocation: 40% siren upgrades, 30% school programs, 20% drills, 10% mobile tech<br>
-        - Responsible teams: Civil Defense, Local Fire Stations
-      </p>
-    </div>
+    <h3>📘 Communication Methods</h3>
+    <p>Getting the word out early saves lives. At FEMA, we have developed a high-tech, long reach warning system backed by:</p>
+    <ul>
+      <li><strong>Sirens:</strong> Coastal sirens activated in at-risk areas.</li>
+      <li><strong>Wireless Alerts:</strong> Emergency texts sent directly to mobile phones.</li>
+      <li><strong>Radio & TV Broadcasts:</strong> NOAA and local news provide real-time tsunami updates.</li>
+    </ul>
+    <h3>📘 Effectiveness</h3>
+    <p>Our system is tested to make sure warnings are fast and reliable. This ensures that all residents are well-notified of dangers. To make sure everybody is accounted for:</p>
+    <ul>
+      <li>Drills run every 3 months to check response speed and public understanding.</li>
+      <li>Multilingual alerts ensure all residents receive the message.</li>
+      <li>Systems are backed by satellite and emergency power for reliability.</li>
+    </ul>
+    <h3>📘 Personal Action Plan (Warning)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Description</th>
+          <th>Budget</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sirens Upgrade</td>
+          <td>Modernize sirens with solar backup and louder ranges</td>
+          <td>$400,000</td>
+        </tr>
+        <tr>
+          <td>Alert Campaign</td>
+          <td>Design of multilingual SMS templates and signage</td>
+          <td>$120,000</td>
+        </tr>
+        <tr>
+          <td>Drill Expansion</td>
+          <td>Quarterly statewide tsunami simulation drills</td>
+          <td>$100,000</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td></td>
+          <td>$620,000</td>
+        </tr>
+      </tbody>
+    </table>
     <button class="back-to-top" id="backToTopBtn">⬆ Top</button>
   </main>
-
   <footer>
-    &copy; 2025 TsunamiShield Project | FEMA
+    &copy; 2025 TsunamiShield Project | FEMA Student Assessment Tool
   </footer>
-
   <script>
     const backToTopBtn = document.getElementById('backToTopBtn');
     window.addEventListener('scroll', () => {
