@@ -11,11 +11,15 @@
       padding: 0;
       height: 100%;
       font-family: 'Inter', 'DM Sans', sans-serif;
-      background: #f0f4f8;
       color: #1e293b;
       display: flex;
       flex-direction: column;
       animation: fadeIn 1s ease;
+    }
+    body {
+      background: linear-gradient(to bottom, #f0f4f8, #dbeafe);
+      background-attachment: fixed;
+      background-size: cover;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -48,7 +52,6 @@
       font-size: 18px;
       opacity: 0.9;
     }
-    /* Replace 'image.png' with your new file if needed */
     header::after {
       content: '';
       position: absolute;
@@ -107,46 +110,49 @@
       padding: 60px 20px;
       max-width: 960px;
       margin: auto;
-      position: relative;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
     h2 {
       color: #1e40af;
-      margin-bottom: 30px;
       font-size: 32px;
       text-align: center;
+      margin-bottom: 40px;
     }
-    .infocard {
-      background: white;
-      padding: 30px;
-      margin-bottom: 30px;
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      border-left: 5px solid #3b82f6;
-      transition: transform 0.3s, box-shadow 0.3s;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: slideIn 0.6s forwards;
-    }
-    .infocard:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    }
-    .infocard:nth-of-type(2) { animation-delay: 0.2s; }
-    .infocard:nth-of-type(3) { animation-delay: 0.4s; }
-    @keyframes slideIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .infocard h3 {
-      margin-bottom: 12px;
+    h3 {
       color: #0f172a;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .infocard h3::before {
-      content: '🔍';
       font-size: 22px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+    p, ul {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 20px 0;
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+    th {
+      background: #1e3a8a;
+      color: white;
+      font-weight: 600;
+    }
+    tr:last-child td {
+      border-bottom: none;
     }
     .back-to-top {
       position: fixed;
@@ -195,39 +201,70 @@
   <main>
     <h2>Prediction</h2>
 
-    <div class="infocard">
-      <h3>Research & Evidence</h3>
-      <p>
-        We use ocean buoys, seismic sensors, and satellite monitoring to track
-        undersea activity. Historical data from the 2011 Japan tsunami and local
-        records inform our prediction models.
-      </p>
-    </div>
+    <h3>📘 Research & Evidence</h3>
+    <p>Tsunami prediction relies on understanding the relationship between seismic activity and ocean displacement. FEMA integrates global data sources to stay ahead of potential events in the Pacific Ocean.</p>
+    <ul>
+      <li><strong>DART buoys</strong> detect seafloor pressure changes indicating tsunami waves.</li>
+      <li><strong>USGS Earthquake Alerts</strong> track undersea quakes near Hawaii and the Pacific Rim.</li>
+      <li><strong>Historical case studies</strong> like the 2011 Japan tsunami help model wave behavior.</li>
+      <li><strong>Forecast models</strong> simulate tsunami paths using quake magnitude and ocean depth.</li>
+    </ul>
+    <p>In 2025, FEMA plans to deploy a new AI-powered dashboard to analyze seismic patterns and predict risk with higher accuracy.</p>
 
-    <div class="infocard">
-      <h3>Clear Reasoning</h3>
-      <p>
-        Tsunamis often follow strong offshore earthquakes. When seismic waves
-        reach certain thresholds, alerts are triggered and simulation models
-        estimate potential wave impact zones.
-      </p>
-    </div>
+    <h3>📘 Clear Reasoning</h3>
+    <p>Here’s how tsunami prediction works step-by-step:</p>
+    <ul>
+      <li><strong>Detection:</strong> Earthquake sensors detect strong undersea seismic activity.</li>
+      <li><strong>Assessment:</strong> Quakes above 7.0 magnitude trigger tsunami risk analysis.</li>
+      <li><strong>Verification:</strong> Buoys confirm whether wave activity is present.</li>
+      <li><strong>Modeling:</strong> Software simulates wave travel and expected landfall time.</li>
+      <li><strong>Action:</strong> If a threat is confirmed, FEMA alerts civil defense teams immediately.</li>
+    </ul>
+    <p>This system allowed a successful alert during the 2023 Aleutian quake, giving Hawaii residents 20 minutes to evacuate.</p>
 
-    <div class="infocard">
-      <h3>Scientists’ Action Plan</h3>
-      <p>
-        - $2.5M invested in updated buoys<br>
-        - Seismic servers with 24/7 monitoring<br>
-        - Staff: 15 scientists, 5 data analysts<br>
-        - Reporting every 15 minutes to FEMA central
-      </p>
-    </div>
+    <h3>📘 Personal Action Plan (Prediction)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Description</th>
+          <th>Budget</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Seismic Sensors</td>
+          <td>Installation of 6 underwater quake sensors</td>
+          <td>$1.2M</td>
+        </tr>
+        <tr>
+          <td>DART Buoys</td>
+          <td>Deployment of 3 deep-ocean buoys for real-time monitoring</td>
+          <td>$900K</td>
+        </tr>
+        <tr>
+          <td>Personnel</td>
+          <td>Team of scientists & analysts for live tracking</td>
+          <td>$600K</td>
+        </tr>
+        <tr>
+          <td>Reporting Tools</td>
+          <td>Upgrade data systems & dashboard software</td>
+          <td>$300K</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td><strong>$3M</strong></td>
+        </tr>
+      </tbody>
+    </table>
 
     <button class="back-to-top" id="backToTopBtn">⬆ Top</button>
   </main>
 
   <footer>
-    &copy; 2025 TsunamiShield Project | FEMA Student Assessment Tool
+    &copy; 2025 TsunamiShield Project | FEMA
   </footer>
 
   <script>
